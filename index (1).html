@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Traffic Rules Game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main>
+    <section id="menu">
+      <h1>🚦 Traffic Rules Game</h1>
+      <p class="sub">Follow the rules to earn points. Break them and you lose points!</p>
+
+      <div class="choices">
+        <button class="big" data-mode="drive">🚗<span>Drive a car</span></button>
+        <button class="big" data-mode="walk">🚶<span>Walk as a pedestrian</span></button>
+      </div>
+
+      <div class="rules">
+        <div>
+          <h3>🚗 Driving rules</h3>
+          <ul>
+            <li>Fasten your seat belt before moving <b>(+5 / −5)</b></li>
+            <li>Stop at a red light <b>(+5)</b>, never run it <b>(−15)</b></li>
+            <li>Pass on green <b>(+10)</b></li>
+            <li>Give way to people on a zebra crossing <b>(+10 / −20)</b></li>
+            <li>Obey the speed limit, 30 km/h in school zones <b>(−3)</b></li>
+            <li>Don't crash into other cars <b>(−20)</b></li>
+          </ul>
+        </div>
+        <div>
+          <h3>🚶 Walking rules</h3>
+          <ul>
+            <li>Look left and right before crossing <b>(−5 if you forget)</b></li>
+            <li>Cross only on the zebra crossing <b>(−10 if you jaywalk)</b></li>
+            <li>Wait for the green WALK signal <b>(−15 on red)</b></li>
+            <li>Reach the other side safely <b>(+15)</b></li>
+            <li>Perfect crossing with no mistakes <b>(+10 bonus)</b></li>
+            <li>Getting hit by a car <b>(−20)</b></li>
+          </ul>
+        </div>
+      </div>
+      <p class="sub">You start with 50 points. If you reach 0, the game is over.</p>
+    </section>
+
+    <section id="play" class="hidden">
+      <div id="hud">
+        <div class="score">Score: <b id="score">50</b></div>
+        <div id="info"></div>
+        <button id="quit">Menu</button>
+      </div>
+
+      <div id="stage">
+        <canvas id="game" width="480" height="640"></canvas>
+        <div id="end" class="hidden">
+          <div class="card">
+            <h2 id="endTitle"></h2>
+            <div id="stars"></div>
+            <p id="endMsg"></p>
+            <button id="again">Play again</button>
+            <button id="toMenu" class="alt">Main menu</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="log"></div>
+
+      <div id="controls">
+        <button data-key="arrowleft">◀</button>
+        <button data-key="arrowup">▲</button>
+        <button data-key="arrowdown">▼</button>
+        <button data-key="arrowright">▶</button>
+        <button id="actBtn" class="act">Action</button>
+      </div>
+      <p id="help"></p>
+    </section>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>
